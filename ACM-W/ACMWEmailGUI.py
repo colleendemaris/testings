@@ -13,16 +13,21 @@ from email.mime.image import MIMEImage
 from email import encoders
 from email.mime.base import MIMEBase
 
-# from kivy.uix.stacklayout import StackLayout
-
 class FirstKivy(App):
     time_of_day_variable = StringProperty('')
     email_body_variable = StringProperty('')
     subject_variable = StringProperty('')
 
+    def email_list(self):
+        emails = open("email.txt", "r")
+        final_emails = ""
+        for a in emails:
+            final_emails = final_emails + a
+        return final_emails
+
     def sendemail(self, arg):
         sender_email = "colleen.demaris@maine.edu"
-        receiver_email = "cdcoldem99@gmail.com"
+        receiver_email = self.email_list()
         port = 465
         password = "GoldenAss123#"
         context = ssl.create_default_context()
