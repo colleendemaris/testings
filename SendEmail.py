@@ -24,7 +24,7 @@ def plaintextemail():
         message = """\
             Subject: hi there
 
-            This message from python"""
+            This message is from python"""
 
 
         server.sendmail(sender_email, receiver_email, message)
@@ -154,4 +154,4 @@ def imageemail():
     smtp.sendmail(strFrom, strTo, msgRoot.as_string())
     smtp.quit()
 
-fancyemail()
+plaintextemail()
